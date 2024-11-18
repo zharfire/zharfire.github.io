@@ -67,7 +67,17 @@
 								<img src="images/Japan_VineyardRiskMap.jpg" alt="Satellite data monitoring vineyard" style="max-width: 100%; height: auto; margin-top: 20px;">
 
 								<hr />
+
+								<h3>How to code the risk map as shown?</h3>
 								
+								<p>This code assesses vineyard risk by calculating and normalizing three key environmental factors: frost days, growing degree days (GDD), and total precipitation. Each factor is computed using ERA5 daily reanalysis data for a specified region and time period.</p>
+
+								<p>Frost Days: Days with a minimum air temperature below 0°C are identified, and their total count is calculated. The frost days are normalized by dividing each pixel value by the maximum frost days in the region, resulting in a scale from 0 to 1.</p>
+								<p>GDD: The average daily temperature (converted from Kelvin to Celsius) is used to compute GDD with a base temperature of 10°C. Positive differences between daily mean temperature and the base are summed over the year. GDD values are normalized similarly.</p>
+								<p>Precipitation: Total precipitation is summed across all days within the time period. The values are normalized to ensure comparability.</p>
+								<p>The normalized layers are combined into a risk map using weighted contributions: frost days (40%), GDD (30%), and precipitation (30%). The final risk map highlights areas with higher environmental risks for vineyards, aiding decision-making for vineyard site selection and management. Layers are visualized using geemap for inspection and analysis.</p>
+
+								<hr />
 							</div>
 						</section>
 					</article>
